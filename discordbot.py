@@ -50,5 +50,18 @@ async def on_message(message):
         dm = await message.author.create_dm()
         await dm.send(f"{message.author.mention}さんどうしましたか？もし、質問・要望等ありましたら、以下のサバで言ってもらえると嬉しいです（ https://discord.gg/mCs822d ）")
 
+@client.event
+async def on_message(message):
+    if message.content == "dice":
+        dice = random.randint(0, 100) #出る目を指定
+    if 0 < dice < 50: #1～49
+        await message.send_message(message.channel, "バカ")
+    elif 51 < dice < 100: #50～99
+        await message.send_message(message.channel, "アホ")
+    elif dice == 0: #0が出たとき
+        await message.send_message(message.channel, "ドジ")
+    else: #それ以外なので今回の場合100が出た時に処理される
+        await message.send_message(message.channel, "マヌケ")
+
 client.run(TOKEN)
 
