@@ -49,28 +49,6 @@ async def on_message(message):
         # ダイレクトメッセージ送信
         dm = await message.author.create_dm()
         await dm.send(f"{message.author.mention}さんどうしましたか？もし、質問・要望等ありましたら、以下のサバで言ってもらえると嬉しいです（ https://discord.gg/mCs822d ）")
-
-@client.event
-async def on_message(message):
-    """メッセージを処理"""
-    if message.author.bot:  # ボットのメッセージをハネる
-        return
-
-    if message.content == "何曜日？":
-        if weekday==0:
-            await message.channel.send(f"月曜日です") 
-        elif weekday==1:
-            await message.channel.send(f"火曜日です") 
-        elif weekday==2:
-            await message.channel.send(f"水曜日です") 
-        elif weekday==3:
-            await message.channel.send(f"木曜日です") 
-        elif weekday==4:
-            await message.channel.send(f"金曜日です") 
-        elif weekday==5:
-            await message.channel.send(f"土曜日です") 
-        elif weekday==6:
-            await message.channel.send(f"日曜日です") 
             
 client.run(TOKEN)
 
