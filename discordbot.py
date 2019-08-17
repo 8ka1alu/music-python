@@ -9,6 +9,10 @@ client = discord.Client()
 
 weekday=datetime.date.today().weekday()
 
+owner_id = 459936557432963103
+
+member_id = member.id
+
 @client.event
 async def on_ready():
     print('Hello World,対話botプログラム「Project-ririna-」、起動しました')
@@ -26,7 +30,9 @@ async def on_message(message):
     if all(s in message.content for s in ['何時？']):
         date = datetime.datetime.now()
         await message.channel.send(f'今は{date.hour}時{date.minute}分{date.second}秒だよ！')
-
+    if member_id == owner_id:
+        await message.channel.send('マスター！！')
+        
 @client.event
 async def on_message(message):
     """メッセージを処理"""
@@ -45,12 +51,4 @@ async def on_message(message):
         embed.add_field(name="[運勢] ", value=random.choice(('大吉', '吉', '凶', '大凶')), inline=False)
         await message.channel.send(embed=embed)
 
-    elif message.content == "DM":
-        # ダイレクトメッセージ送信
-        dm = await message.author.create_dm()
-        await dm.send(f"{message.author.mention}さんどうしましたか？もし、質問・要望等ありましたら、以下のサバで言ってもらえると嬉しいです（ https://discord.gg/mCs822d ）")
-            
 client.run(TOKEN)
-
-#end##
-
