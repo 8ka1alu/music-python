@@ -28,7 +28,7 @@ async def on_message(message):
     if all(s in message.content for s in ['何時？']):
         date = datetime.datetime.now()
         await message.channel.send(f'今は{date.hour}時{date.minute}分{date.second}秒だよ！')
-    if message.author.id = owner_id:
+    if message.author.id == owner_id:
         await message.channel.send('マスター！！')
         
 @client.event
