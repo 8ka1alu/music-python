@@ -9,7 +9,7 @@ client = discord.Client()
 
 weekday=datetime.date.today().weekday()
 
-owner_id = 459936557432963103
+owner_id = "459936557432963103"
 
 @client.event
 async def on_ready():
