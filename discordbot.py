@@ -11,7 +11,7 @@ weekday=datetime.date.today().weekday()
 
 owner_id = 459936557432963103
 
-member_id = member.id
+member_id = message.author.id
 
 @client.event
 async def on_ready():
