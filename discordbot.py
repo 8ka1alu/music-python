@@ -8,6 +8,7 @@ import discord
 from async_timeout import timeout
 from discord.ext import commands
 import os
+from youtube_dl import YoutubeDL
 
 TOKEN = os.environ['DISCORD_BOT_TOKEN']
 
