@@ -22,16 +22,16 @@ async def on_message(message):
         return
     
     if msg == '!play':
-        if message.author.VoiceChannel is None:
+        if message.author.voice.channel is None:
             await client.channel.send('ボイスチャンネルに参加してからコマンドを打ってください。')
             return
         if voice == None:
             # ボイスチャンネルIDが未指定なら
             if discord_voice_channel_id == '':
-                voice = await client.VoiceChannel.connect(message.author.VoiceChannel)
+                voice = await channel.connect(message.author.VoiceChannel)
             # ボイスチャンネルIDが指定されていたら
             else:
-                voice = await client.VoiceChannel.connect(client.get_channel(discord_voice_channel_id))
+                voice = await channel.connect(client.get_channel(discord_voice_channel_id))
         # 接続済みか確認
         elif(voice.is_connected() == True):
             # 再生中の場合は一度停止
