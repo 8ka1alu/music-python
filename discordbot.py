@@ -10,8 +10,6 @@ from discord.ext import commands
 import os
 
 TOKEN = os.environ['DISCORD_BOT_TOKEN']
-# Silence useless bug reports messages
-youtube_dl.utils.bug_reports_message = lambda: ''
 
 class VoiceError(Exception):
     pass
