@@ -22,7 +22,7 @@ async def on_message(message):
         return
     
     if msg == '!play':
-        if message.author.voice.channel is None:
+        if message.author.voice_channel is None:
             await client.channel.send('ボイスチャンネルに参加してからコマンドを打ってください。')
             return
         if voice == None:
